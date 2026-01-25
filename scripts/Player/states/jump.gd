@@ -6,6 +6,7 @@ extends State
 func enter() -> void:
 	super()
 	parent.velocity.y = parent.jump_velocity
+	parent.sound.play("Jump")
 
 func process_physics(delta : float) -> State:
 	parent.velocity.y += parent.gravity * delta
@@ -26,7 +27,11 @@ func process_physics(delta : float) -> State:
 	return null
 
 func process_input(input : InputEvent) -> State:
-	if Input.is_action_just_pressed("shoot"):
-		return shoot_state
+	if parent.ammo > 0:
+		if Input.is_action_pressed("shoot"):
+			return shoot_state
+	else:
+		if Input.is_action_just_pressed("shoot"):
+			return shoot_state
 	
 	return null

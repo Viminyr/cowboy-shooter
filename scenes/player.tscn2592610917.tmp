@@ -411,12 +411,12 @@ metadata/_custom_type_script = "uid://okv8kqkxvwyp"
 
 [node name="Shoot" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "move_state", "jump_state", "shoot_state")]
 script = ExtResource("8_smehm")
+animation_name = "Shoot"
 idle_state = NodePath("../Idle")
 fall_state = NodePath("../Fall")
 move_state = NodePath("../Move")
 jump_state = NodePath("../Jump")
 shoot_state = NodePath(".")
-animation_name = "Shoot"
 metadata/_custom_type_script = "uid://okv8kqkxvwyp"
 
 [node name="SoundManager" type="Node" parent="."]

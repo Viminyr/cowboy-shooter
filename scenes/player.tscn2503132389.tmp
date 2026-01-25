@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dbd7jlhw26vum"]
+[gd_scene load_steps=29 format=3 uid="uid://dbd7jlhw26vum"]
 
 [ext_resource type="Script" uid="uid://dmht7pu72bbn3" path="res://scripts/Player/player.gd" id="1_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://b10067slknnyp" path="res://assets/sprites/Player-Sheet.png" id="2_fjrip"]
@@ -14,7 +14,6 @@
 [ext_resource type="Script" uid="uid://c2yy7w14jm4bg" path="res://scripts/Player/states/shoot.gd" id="8_smehm"]
 [ext_resource type="Texture2D" uid="uid://cyjgiuyp86xf8" path="res://assets/sprites/flash.png" id="10_y4r1p"]
 [ext_resource type="Script" uid="uid://bxfgvkhc5rnxw" path="res://scripts/classes/sound_manager.gd" id="11_f1ej7"]
-[ext_resource type="AudioStream" uid="uid://cpt55utpyomug" path="res://assets/sounds/empty-gun.mp3" id="15_oprun"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(8, 14)
@@ -411,12 +410,12 @@ metadata/_custom_type_script = "uid://okv8kqkxvwyp"
 
 [node name="Shoot" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "move_state", "jump_state", "shoot_state")]
 script = ExtResource("8_smehm")
+animation_name = "Shoot"
 idle_state = NodePath("../Idle")
 fall_state = NodePath("../Fall")
 move_state = NodePath("../Move")
 jump_state = NodePath("../Jump")
 shoot_state = NodePath(".")
-animation_name = "Shoot"
 metadata/_custom_type_script = "uid://okv8kqkxvwyp"
 
 [node name="SoundManager" type="Node" parent="."]
@@ -431,6 +430,3 @@ stream = ExtResource("6_3v2ag")
 [node name="FootStep" type="AudioStreamPlayer" parent="SoundManager"]
 stream = ExtResource("7_jej6c")
 volume_db = -6.0
-
-[node name="EmptyGun" type="AudioStreamPlayer" parent="SoundManager"]
-stream = ExtResource("15_oprun")

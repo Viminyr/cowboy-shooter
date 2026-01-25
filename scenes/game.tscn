@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://b3pt8ea7em76k"]
+[gd_scene load_steps=10 format=4 uid="uid://b3pt8ea7em76k"]
 
+[ext_resource type="Script" uid="uid://cwkl7t00j1uto" path="res://scripts/game.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://dbd7jlhw26vum" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://bpt63vu37san7" path="res://assets/sprites/box.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://tya7shfvxi2a" path="res://scenes/skeleton.tscn" id="4_iywne"]
 [ext_resource type="Texture2D" uid="uid://7pj8lmgudtqu" path="res://assets/sprites/sand_tiles.png" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://bdrucxqp6ek8t" path="res://scenes/gui.tscn" id="5_iywne"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -530,6 +532,7 @@ sources/0 = SubResource("TileSetAtlasSource_lnu2h")
 sources/1 = SubResource("TileSetAtlasSource_iywne")
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_p57ef")
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(126, 123)
@@ -545,3 +548,5 @@ tile_set = SubResource("TileSet_lbhrr")
 
 [node name="Skeleton" parent="." instance=ExtResource("4_iywne")]
 position = Vector2(230, 146)
+
+[node name="GUI" parent="." instance=ExtResource("5_iywne")]
