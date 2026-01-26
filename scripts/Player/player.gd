@@ -13,7 +13,6 @@ class_name Player
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var muzzle_flash: PointLight2D = $MuzzleFlash
 @onready var animation: AnimationPlayer = $AnimationPlayer
-@onready var jump_sound: AudioStreamPlayer = $JumpSound
 @onready var reload_timer: Timer = $ReloadTimer
 @onready var sound: Node = $SoundManager
 
@@ -24,13 +23,16 @@ var direction : int = 0
 var facing_direction : int = 1
 
 func _ready() -> void:
-	state_machine.init(self)
+	state_machine.init(self, animation)
 	reload_timer.connect("timeout", _on_reload_timer_timout)
 
 func _input(event: InputEvent) -> void:
 	state_machine.process_input(event)
+	if Input.is_action_just_pressed("reload"):
+		reload()
 
 func _physics_process(delta: float) -> void:
+	@warning_ignore("narrowing_conversion")
 	direction = Input.get_axis("move_left", "move_right")
 	
 	state_machine.process_physics(delta)

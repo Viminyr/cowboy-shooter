@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://doa4lab0x46e3"]
+
+[ext_resource type="Texture2D" uid="uid://rwwwpspreqqi" path="res://assets/sprites/hills0.png" id="1_07sdq"]
+[ext_resource type="Texture2D" uid="uid://b4jlgmjwnid80" path="res://assets/sprites/hills1.png" id="2_vhwcj"]
+[ext_resource type="Texture2D" uid="uid://bqgnkn2o7cev6" path="res://assets/sprites/hills2.png" id="3_eloq1"]
+[ext_resource type="Texture2D" uid="uid://c74f26dixhg5r" path="res://assets/sprites/hills3.png" id="4_ko5af"]
+[ext_resource type="Texture2D" uid="uid://cwweccf8k31jk" path="res://assets/sprites/hills4.png" id="5_0xk68"]
+[ext_resource type="Texture2D" uid="uid://dtrin61j7vetg" path="res://assets/sprites/sky.png" id="6_7ipe0"]
+
+[node name="DesertBackground" type="ParallaxBackground"]
+
+[node name="Hills0" type="ParallaxLayer" parent="."]
+z_index = -1
+position = Vector2(160, -90)
+motion_scale = Vector2(0.9, 0.9)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Hills0"]
+texture = ExtResource("1_07sdq")
+
+[node name="Hills1" type="ParallaxLayer" parent="."]
+z_index = -2
+position = Vector2(160, -90)
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Hills1"]
+texture = ExtResource("2_vhwcj")
+
+[node name="Hills2" type="ParallaxLayer" parent="."]
+z_index = -3
+position = Vector2(160, -90)
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Hills2"]
+texture = ExtResource("3_eloq1")
+
+[node name="Hills3" type="ParallaxLayer" parent="."]
+z_index = -4
+position = Vector2(160, -90)
+motion_scale = Vector2(0.5, 0.5)
+motion_offset = Vector2(0, 25)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Hills3"]
+texture = ExtResource("4_ko5af")
+
+[node name="Hills4" type="ParallaxLayer" parent="."]
+z_index = -5
+position = Vector2(160, -90)
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Hills4"]
+texture = ExtResource("5_0xk68")
+
+[node name="Sky" type="ParallaxLayer" parent="."]
+z_index = -6
+position = Vector2(160, -93)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sky"]
+texture = ExtResource("6_7ipe0")

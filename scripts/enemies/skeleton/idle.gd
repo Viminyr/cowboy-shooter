@@ -1,0 +1,17 @@
+extends State
+
+func process_physics(delta: float) -> State:
+	parent.velocity.x = 0
+	parent.velocity.y = move_toward(parent.velocity.y, parent.terminal_velocity, parent.gravity * delta)
+	parent.move_and_slide()
+	
+	return null
+
+func process_frame(delta: float) -> State:
+	if parent.direction:
+		return states.move
+	
+	if parent.wants_attack:
+		return states.attack
+	
+	return null

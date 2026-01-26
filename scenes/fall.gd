@@ -1,10 +1,5 @@
 extends State
 
-@export var idle_state : State
-@export var move_state : State
-@export var jump_state : State
-@export var shoot_state : State
-
 func process_physics(delta: float) -> State:
 	parent.velocity.y = move_toward(parent.velocity.y, parent.terminal_velocity, parent.gravity * delta)
 	
@@ -20,18 +15,18 @@ func process_physics(delta: float) -> State:
 
 	if parent.is_on_floor():
 		if parent.direction:
-			return move_state
+			return states.move
 		else:
-			return idle_state
+			return states.idle
 	
 	return null
 
-func process_input(input : InputEvent) -> State:
+func process_input(_input : InputEvent) -> State:
 	if parent.ammo > 0:
 		if Input.is_action_pressed("shoot"):
-			return shoot_state
+			return states.shoot
 	else:
 		if Input.is_action_just_pressed("shoot"):
-			return shoot_state
+			return states.shoot
 	
 	return null

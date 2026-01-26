@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dm3bor0cf3gyb"
+path="res://.godot/imported/Overworld(maybe) V2.mp3-1c96a6e115da668b67e0b64ecb93c6f4.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Overworld(maybe) V2.mp3"
+dest_files=["res://.godot/imported/Overworld(maybe) V2.mp3-1c96a6e115da668b67e0b64ecb93c6f4.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=120.0
+beat_count=0
+bar_beats=4

@@ -1,9 +1,5 @@
 extends State
 
-@export var fall_state: State
-@export var jump_state: State
-@export var move_state: State
-@export var shoot_state: State
 
 func process_physics(delta: float) -> State:
 	parent.velocity.x = 0
@@ -11,20 +7,20 @@ func process_physics(delta: float) -> State:
 	parent.move_and_slide()
 	
 	if !parent.is_on_floor():
-		return fall_state
+		return states.fall
 	
-	if parent.direction != 0:
-		return move_state
+	if parent.direction:
+		return states.move
 	
 	return null
 
-func process_input(input : InputEvent) -> State:
+func process_input(_input : InputEvent) -> State:
 	if Input.is_action_just_pressed("jump") and parent.is_on_floor:
-		return jump_state
+		return states.jump
 	if parent.ammo > 0:
 		if Input.is_action_pressed("shoot"):
-			return shoot_state
+			return states.shoot
 	else:
 		if Input.is_action_just_pressed("shoot"):
-			return shoot_state
+			return states.shoot
 	return null

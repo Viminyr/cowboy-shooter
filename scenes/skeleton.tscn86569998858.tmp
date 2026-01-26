@@ -1,13 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://tya7shfvxi2a"]
+[gd_scene load_steps=14 format=3 uid="uid://tya7shfvxi2a"]
 
 [ext_resource type="Script" uid="uid://dtr1i6qyxvag7" path="res://scripts/enemies/skeleton/skeleton.gd" id="1_ivqcw"]
 [ext_resource type="Texture2D" uid="uid://cm4uhvxd6etko" path="res://assets/sprites/Skeleton.png" id="1_pbvs3"]
 [ext_resource type="Script" uid="uid://okv8kqkxvwyp" path="res://scripts/classes/state.gd" id="2_txkty"]
 [ext_resource type="Script" uid="uid://blerbc2gb1puf" path="res://scripts/enemies/skeleton/state_machine.gd" id="3_bnirc"]
-[ext_resource type="Script" uid="uid://cbovbwy6livbr" path="res://scripts/classes/hitbox.gd" id="3_haw2w"]
 [ext_resource type="Script" uid="uid://chm71x1h51glh" path="res://scripts/enemies/skeleton/idle.gd" id="4_5pgwy"]
 [ext_resource type="Script" uid="uid://bwfl7dbubg0g3" path="res://scenes/move.gd" id="5_ssl1b"]
-[ext_resource type="Script" uid="uid://cyqbc17ve2puu" path="res://scenes/attack.gd" id="6_w4hcs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_txkty"]
 size = Vector2(10, 16)
@@ -26,7 +24,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2), Vector2i(6, 2)]
+"values": [Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1), Vector2i(6, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -43,8 +41,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_5pgwy"]
 resource_name = "Death"
-length = 0.550005
-step = 0.05
+step = 0.0666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -52,17 +49,16 @@ tracks/0/path = NodePath("Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5),
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333, 0.6, 0.666667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3), Vector2i(4, 3), Vector2i(5, 3), Vector2i(6, 3), Vector2i(7, 3), Vector2i(8, 3), Vector2i(9, 3), Vector2i(10, 3)]
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2), Vector2i(6, 2), Vector2i(7, 2), Vector2i(8, 2), Vector2i(9, 2), Vector2i(10, 2)]
 }
 
 [sub_resource type="Animation" id="Animation_pbvs3"]
 resource_name = "Idle"
-length = 0.7143
-loop_mode = 1
-step = 0.142857
+length = 0.001
+step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -70,10 +66,10 @@ tracks/0/path = NodePath("Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.142857, 0.285714, 0.428571, 0.571429),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0)]
+"values": [Vector2i(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -103,7 +99,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1), Vector2i(6, 1), Vector2i(7, 1)]
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(6, 0), Vector2i(7, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -154,13 +150,10 @@ _data = {
 &"RESET": SubResource("Animation_txkty")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_i0f3v"]
-radius = 7.0
-
 [node name="Skeleton" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_ivqcw")
-move_speed = 50
+move_speed = 75
 terminal_velocity = 500
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -171,22 +164,13 @@ shape = SubResource("RectangleShape2D_txkty")
 position = Vector2(0, -8)
 texture = ExtResource("1_pbvs3")
 hframes = 11
-vframes = 4
+vframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_5pgwy")
 }
 autoplay = "Idle"
-
-[node name="Hitbox" type="Area2D" parent="." groups=["Hitboxes"]]
-position = Vector2(6, -8)
-script = ExtResource("3_haw2w")
-hitbox_owner = 1
-position_flippable = Vector2(6, -8)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource("CircleShape2D_i0f3v")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_bnirc")
@@ -203,7 +187,7 @@ animation_name = "Move"
 metadata/_custom_type_script = "uid://okv8kqkxvwyp"
 
 [node name="Attack" type="Node" parent="StateMachine"]
-script = ExtResource("6_w4hcs")
+script = ExtResource("2_txkty")
 animation_name = "Attack"
 metadata/_custom_type_script = "uid://okv8kqkxvwyp"
 
@@ -214,12 +198,11 @@ metadata/_custom_type_script = "uid://okv8kqkxvwyp"
 
 [node name="CastLeft" type="RayCast2D" parent="."]
 position = Vector2(0, -8)
-target_position = Vector2(-70, 0)
+target_position = Vector2(35, 0)
 collision_mask = 2
 hit_from_inside = true
 
 [node name="CastRight" type="RayCast2D" parent="."]
 position = Vector2(0, -8)
-target_position = Vector2(70, 0)
+target_position = Vector2(-35, 0)
 collision_mask = 2
-hit_from_inside = true
