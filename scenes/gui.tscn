@@ -1,27 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdrucxqp6ek8t"]
+[gd_scene load_steps=4 format=3 uid="uid://bdrucxqp6ek8t"]
 
 [ext_resource type="Script" uid="uid://de5xx38qkt5i" path="res://scripts/gui.gd" id="1_mfius"]
 [ext_resource type="Texture2D" uid="uid://dbhvjtbir1sln" path="res://assets/sprites/Ammo Gauge6.png" id="2_mfius"]
+[ext_resource type="Texture2D" uid="uid://r24shkx4o4h6" path="res://assets/sprites/Health-Gauge6.png" id="2_ynd5l"]
 
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource("1_mfius")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1.0
-offset_bottom = 1.0
-
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
-layout_mode = 1
-offset_right = 32.0
-offset_bottom = 32.0
+[node name="TopLeftMargin" type="MarginContainer" parent="."]
+offset_right = 48.0
+offset_bottom = 48.0
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 
-[node name="AmmoGauge" type="TextureRect" parent="Control/MarginContainer"]
+[node name="HealthGauge" type="TextureRect" parent="TopLeftMargin"]
+layout_mode = 2
+texture = ExtResource("2_ynd5l")
+stretch_mode = 2
+
+[node name="TopRightMargin" type="MarginContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_bottom = 48.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 0
+
+[node name="AmmoGauge" type="TextureRect" parent="TopRightMargin"]
 layout_mode = 2
 texture = ExtResource("2_mfius")
 stretch_mode = 2

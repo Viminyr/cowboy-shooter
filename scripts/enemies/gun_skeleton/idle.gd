@@ -6,3 +6,12 @@ func process_physics(delta: float) -> State:
 	parent.move_and_slide()
 	
 	return null
+
+func process_frame(delta: float) -> State:
+	if parent.direction:
+		return states.Move
+	
+	if parent.wants_attack:
+		return states.Shoot
+	
+	return null

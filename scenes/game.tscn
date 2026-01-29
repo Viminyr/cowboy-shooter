@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://b3pt8ea7em76k"]
+[gd_scene load_steps=13 format=4 uid="uid://b3pt8ea7em76k"]
 
 [ext_resource type="Script" uid="uid://cwkl7t00j1uto" path="res://scripts/game.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://dbd7jlhw26vum" path="res://scenes/player.tscn" id="1_uwrxv"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bdrucxqp6ek8t" path="res://scenes/gui.tscn" id="5_iywne"]
 [ext_resource type="AudioStream" uid="uid://dm3bor0cf3gyb" path="res://assets/music/Overworld(maybe) V2.mp3" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://doa4lab0x46e3" path="res://scenes/desert_background.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://dfj30i0kby5id" path="res://scenes/gun_skeleton.tscn" id="9_0tnpc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -537,9 +538,10 @@ sources/1 = SubResource("TileSetAtlasSource_iywne")
 script = ExtResource("1_p57ef")
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
-position = Vector2(126, 123)
+position = Vector2(79, 130)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+offset = Vector2(0, -10)
 process_callback = 0
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -555,8 +557,15 @@ tile_set = SubResource("TileSet_lbhrr")
 [node name="Overworld" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("7_u5sy4")
 autoplay = true
+bus = &"Music"
 
 [node name="DesertBackground" parent="." instance=ExtResource("8_gee14")]
 
 [node name="Skeleton" parent="." instance=ExtResource("4_iywne")]
-position = Vector2(220, 83)
+position = Vector2(225, 125)
+
+[node name="GunSkeleton" parent="." instance=ExtResource("9_0tnpc")]
+position = Vector2(296, 103)
+
+[node name="Skeleton2" parent="." instance=ExtResource("4_iywne")]
+position = Vector2(6, 106)

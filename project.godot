@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalData="*res://scripts/global_data.gd"
+GlobalData="*res://global_data.gd"
 
 [display]
 
@@ -34,6 +34,10 @@ folder_colors={
 "res://scenes/": "orange",
 "res://scripts/": "yellow"
 }
+
+[global_group]
+
+Enemies=""
 
 [input]
 
@@ -69,6 +73,7 @@ reload={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemies"
 2d_physics/layer_4="projectiles"
+2d_physics/layer_5="hitboxes"
 
 [rendering]
 

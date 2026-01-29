@@ -22,11 +22,7 @@ func process_physics(delta: float) -> State:
 	return null
 
 func process_input(_input : InputEvent) -> State:
-	if parent.ammo > 0:
-		if Input.is_action_pressed("shoot"):
-			return states.shoot
-	else:
-		if Input.is_action_just_pressed("shoot"):
-			return states.shoot
+	if Input.is_action_pressed("shoot"):
+		return states.shoot
 	
 	return null

@@ -8,7 +8,8 @@ class_name player_state_machine
 	"fall" = $Fall,
 	"move" = $Move,
 	"jump" = $Jump,
-	"shoot" = $Shoot
+	"shoot" = $Shoot,
+	"death" = $Death
 	}
 
 @export var starting_state : State

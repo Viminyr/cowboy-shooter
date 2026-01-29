@@ -17,10 +17,6 @@ func process_physics(delta: float) -> State:
 func process_input(_input : InputEvent) -> State:
 	if Input.is_action_just_pressed("jump") and parent.is_on_floor:
 		return states.jump
-	if parent.ammo > 0:
-		if Input.is_action_pressed("shoot"):
-			return states.shoot
-	else:
-		if Input.is_action_just_pressed("shoot"):
-			return states.shoot
+	if Input.is_action_pressed("shoot"):
+		return states.shoot
 	return null

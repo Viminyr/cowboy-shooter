@@ -9,8 +9,10 @@ func process_physics(delta: float) -> State:
 
 func process_frame(delta: float) -> State:
 	if !parent.direction:
-		return states.idle
+		return states.Idle
 	if parent.wants_attack:
-		return states.attack
+		return states.Attack
+	if parent.sprite.frame == 16 and !parent.sound.playing:
+		parent.sound.play("Footstep")
 	
 	return null
